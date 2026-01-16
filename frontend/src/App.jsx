@@ -1,16 +1,32 @@
+import { Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import ProductDetail from './pages/ProductDetail'
+import Cart from './pages/Cart'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Checkout from './pages/Checkout'
+import CategoryPage from './pages/CategoryPage'
+import MyOrders from './pages/MyOrders'
+
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-xl shadow-lg">
-        <h1 className="text-3xl font-bold text-blue-600">
-          GreatKart is Live! 🚀
-        </h1>
-        <p className="mt-4 text-gray-500">
-          Backend is running on Port 8000.
-          <br />
-          Frontend is running on Port 5173.
-        </p>
-      </div>
+    <div className="flex flex-col min-h-screen bg-gray-50">
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:slug" element={<ProductDetail />} />
+        <Route path="/products/category/:slug" element={<CategoryPage />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/my-orders" element={<MyOrders />} />
+      </Routes>
+
+      <Footer />
     </div>
   )
 }
